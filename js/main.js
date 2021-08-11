@@ -1,0 +1,236 @@
+var firebaseConfig = {
+	apiKey: "AIzaSyCcFouJJEZu5zXBFRENlaHX3Sy70dtYbfU",
+	authDomain: "stepapp-270e8.firebaseapp.com",
+	projectId: "stepapp-270e8",
+	storageBucket: "stepapp-270e8.appspot.com",
+	messagingSenderId: "735809420642",
+	appId: "1:735809420642:web:6ca5eab3097eaa2eb2403b",
+	measurementId: "G-8ZPR5280QR"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+let db = firebase.firestore();
+let storage = firebase.storage();
+let collectionArray = [];
+
+(function($) {
+
+	"use strict";
+
+	var fullHeight = function() {
+
+		$('.js-fullheight').css('height', $(window).height());
+		$(window).resize(function(){
+			$('.js-fullheight').css('height', $(window).height());
+		});
+
+	};
+	fullHeight();
+
+	$('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('active');
+  });
+
+})(jQuery);
+
+let mapContainer = document.getElementById('mapContainer');
+mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xla2luZGEiLCJhIjoiY2tzNzNweHEyMDd5ejJxb3pkanFxc2E5aiJ9.w7Eesp4pg5mhkadpSaHzZw';
+let mapboxURL = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibmljb2xla2luZGEiLCJhIjoiY2tzNzNweHEyMDd5ejJxb3pkanFxc2E5aiJ9.w7Eesp4pg5mhkadpSaHzZw';
+
+var mymap = L.map(mapContainer, {
+	editable: true,
+	maxZoom: 15,
+	zoomOffset: -1,
+	center: [-1.253311, 36.827411]
+}).setView([-1.253311, 36.827411], 11);
+L.tileLayer(mapboxURL, {
+	id: 'mapbox/streets-v11',
+	attribution: 'Leaflet',
+	attributionControl: 'Leaflet',
+	accessToken: mapboxgl.accessToken
+}).addTo(mymap);
+
+console.log(mapboxgl.accessToken)
+
+setTimeout(function () {
+	mymap.invalidateSize();
+}, 1000);
+
+/*var helloPopup = L.popup().setContent('Hello World!');*/
+
+L.easyButton('fa-sliders', function(btn, map){
+	$('#sidebar').toggleClass('active');
+	setTimeout(function () {
+		mymap.invalidateSize();
+	}, 500);
+}).addTo(mymap);
+
+db.collection("locations2").get().then((querySnapshot) => {
+	querySnapshot.forEach((doc) => {
+		// doc.data() is never undefined for query doc snapshots
+		//console.log(doc.id, " => ", doc.data());
+
+		collectionArray.push({
+			id: doc.id,
+			latitude: doc.data().latitude,
+			longitude: doc.data().longitude,
+			folderName: doc.data().folderName,
+			phoneNumber: doc.data().phoneNumber,
+			title: doc.data().title,
+			closingTime: doc.data().closingTime,
+			openTime: doc.data().openTime,
+			weblink: doc.data().weblink,
+			description: doc.data().description,
+			visitIndex: doc.data().visitIndex
+		})
+		let imageArray = [];
+
+		if (doc.data().latitude && doc.data().longitude) {
+			L.marker([doc.data().longitude, doc.data().latitude], {
+				id: doc.id,
+				latitude: doc.data().latitude,
+				longitude: doc.data().longitude,
+				folderName: doc.data().folderName,
+				phoneNumber: doc.data().phoneNumber,
+				title: doc.data().title,
+				closingTime: doc.data().closingTime,
+				openTime: doc.data().openTime,
+				weblink: doc.data().weblink,
+				description: doc.data().description,
+				visitIndex: doc.data().visitIndex
+			}).addTo(mymap)
+			.bindPopup(doc.data().description)
+				.on('click', function (e){
+					console.log('clicked marker', e.target.options);
+					let foldername = e.target.options.folderName;
+					let folderRef = storage.ref('locations/' + foldername);
+					imageArray = [];
+					folderRef.listAll()
+						.then((res) => {
+							res.prefixes.forEach((folderRef) => {
+								// All the prefixes under listRef.
+								// You may call listAll() recursively on them.
+								/*console.log('res folder', folderRef.name);*/
+								console.log('found folder '+ folderRef.name)
+							});
+							res.items.forEach((itemRef) => {
+								// All the items under listRef.
+
+								itemRef.getDownloadURL().then(function (urlObject) {
+
+									imageArray.push({
+										imageFolder: foldername,
+										imageURL: urlObject,
+										imageName: itemRef.name,
+										imageBucket: itemRef.bucket
+									})
+
+									return imageArray;
+								})
+							});
+							setTimeout(function () {
+								setImages(imageArray);
+							},2000)
+						}).catch((error) => {
+						// Uh-oh, an error occurred!
+						console.log(error)
+					});
+				})
+		}
+
+	});
+	console.log('collection', collectionArray);
+});
+
+/*L.control.custom({
+	position: 'bottomright',
+	content : function () {
+		return '<img src="http://lorempixel.com/105/105/" class="img-thumbnail" id="demoImage" alt="bg"> <img src="http://lorempixel.com/105/105/" class="img-thumbnail" id="demoImage" alt="bg">';
+	},
+	classes : '',
+	style   :
+		{
+			margin: '0px 20px 20px 0',
+			padding: '0px',
+		},
+})
+	.addTo(mymap);*/
+
+let storageRef = storage.ref('locations/');
+let url = '';
+let folderNames = [];
+let locationImages = [];
+
+storageRef.listAll()
+	.then((res) => {
+		res.prefixes.forEach((folderRef) => {
+			// All the prefixes under listRef.
+			// You may call listAll() recursively on them.
+			/*console.log('res folder', folderRef.name);*/
+			folderNames.push(folderRef.name);
+		});
+
+		folderNames.forEach(function (folder) {
+			let folderRef = storage.ref('locations/' + folder)
+			folderRef.listAll()
+				.then((res) => {
+					res.prefixes.forEach((folderRef) => {
+						// All the prefixes under listRef.
+						// You may call listAll() recursively on them.
+						/*console.log('res folder', folderRef.name);*/
+						console.log('found folder '+ folderRef.name)
+					});
+					res.items.forEach((itemRef) => {
+						// All the items under listRef.
+
+						itemRef.getDownloadURL().then(function (urlObject) {
+
+							locationImages.push({
+								imageFolder: folder,
+								imageURL: urlObject,
+								imageName: itemRef.name,
+								imageBucket: itemRef.bucket
+							})
+						})
+					});
+					console.log('images', locationImages);
+				}).catch((error) => {
+				// Uh-oh, an error occurred!
+				console.log(error)
+			});
+		})
+	}).catch((error) => {
+	// Uh-oh, an error occurred!
+	console.log(error)
+});
+
+
+function setImages(imageArr) {
+	console.log(imageArr);
+	let finalURL = '';
+	imageArr.forEach(function (image) {
+		finalURL = finalURL + '<img src="'+ image.imageURL +'" class="img-thumbnail contextImage" id="demoImage" alt="'+ image.imageName +'">';
+	})
+
+	console.log(finalURL);
+	setContextImages(finalURL);
+}
+
+function setContextImages(imageCTX) {
+	$('.contextImage').remove();
+	L.control.custom({
+		position: 'bottomright',
+		content : imageCTX,
+		classes : '',
+		style   :
+			{
+				margin: '0px 20px 20px 0',
+				padding: '0px',
+				height: '200px',
+				width: '200px'
+			},
+	})
+		.addTo(mymap);
+}
