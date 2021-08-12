@@ -217,17 +217,18 @@ function setImages(imageArr) {
 		collectionArray.forEach(function (collectionDocument) {
 			if (image.imageFolder === collectionDocument.folderName) {
 				console.log('collectionDocument', collectionDocument);
-				document.getElementById('locationTitle').innerText = '';
+				/*document.getElementById('locationTitle').innerText = '';
 				document.getElementById('closingTime').innerText = '';
 				document.getElementById('openingTime').innerText = '';
-				document.getElementById('descriptionBox').innerText = '';
+				document.getElementById('descriptionBox').innerText = '';*/
 				document.getElementById('locationTitle').innerText = collectionDocument.title;
 				document.getElementById('openingTime').innerText = collectionDocument.openTime;
+				document.getElementById('phoneNumber').innerText = collectionDocument.phoneNumber;
 				document.getElementById('closingTime').innerText = collectionDocument.closingTime;
 				document.getElementById('descriptionBox').innerText = collectionDocument.description;
 			}
 		})
-		finalURL = finalURL + '<img src="'+ image.imageURL +'" data-target="#carouselExample" class="img-thumbnail contextImage" id="demoImage" alt="'+ image.imageName +'">';
+		finalURL = finalURL + '<img src="'+ image.imageURL +'" onclick="showGallery()" data-target="#carouselExample" class="img-thumbnail contextImage" id="demoImage" alt="'+ image.imageName +'">';
 		if (index === 0) {
 			$('#carouselIndicator').append(
 				'<li data-target="#carouselExample" data-slide-to="0" class="active"></li>'
@@ -252,6 +253,10 @@ function setImages(imageArr) {
 	$('#exampleModal').modal();
 	console.log(finalURL);
 	setContextImages(finalURL);
+}
+
+function showGallery() {
+	$('#exampleModal').modal();
 }
 
 function setContextImages(imageCTX) {

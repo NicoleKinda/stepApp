@@ -297,3 +297,17 @@ input:checked + .slider:before {
     font-weight: 500;
     color: black;
 }
+
+.img-thumbnail:hover {
+    cursor: pointer;
+}
+
+.footer {
+    bottom: 0;
+    position: absolute;
+}
+
+.logoImage {
+    height: 100px;
+    width: 200px;
+}
