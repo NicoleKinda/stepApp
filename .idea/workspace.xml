@@ -20,13 +20,15 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a992dad-883f-4ecc-a03f-edfdb10eef30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="9a992dad-883f-4ecc-a03f-edfdb10eef30" name="Default Changelist" comment="style changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/stepApp.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/stepApp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,8 +81,17 @@
       <workItem from="1628668348353" duration="14997000" />
       <workItem from="1628704178421" duration="61000" />
       <workItem from="1628705312976" duration="375000" />
-      <workItem from="1628749599767" duration="748000" />
+      <workItem from="1628749599767" duration="912000" />
+      <workItem from="1628758422467" duration="4760000" />
     </task>
+    <task id="LOCAL-00001" summary="style changes">
+      <created>1628754414454</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628754414454</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,18 +102,38 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="style changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="style changes" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="594" y="351" key="Github.ShareDialog" timestamp="1628691320069">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="594" y="351" key="Github.ShareDialog/0.0.1440.900@0.0.1440.900" timestamp="1628691320069" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1628754429197">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1628754429197" />
     <state x="421" y="205" width="597" height="490" key="find.popup" timestamp="1628670425509">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
