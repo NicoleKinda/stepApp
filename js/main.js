@@ -144,11 +144,9 @@ db.collection("locations2").get().then((querySnapshot) => {
 	console.log('collection', collectionArray);
 });
 
-/*L.control.custom({
+L.control.custom({
 	position: 'bottomright',
-	content : function () {
-		return '<img src="http://lorempixel.com/105/105/" class="img-thumbnail" id="demoImage" alt="bg"> <img src="http://lorempixel.com/105/105/" class="img-thumbnail" id="demoImage" alt="bg">';
-	},
+	content : '<img src="http://lorempixel.com/105/105/" class="img-thumbnail" id="demoImage" alt="bg"> <img src="http://lorempixel.com/105/105/" class="img-thumbnail" id="demoImage" alt="bg">',
 	classes : '',
 	style   :
 		{
@@ -156,7 +154,7 @@ db.collection("locations2").get().then((querySnapshot) => {
 			padding: '0px',
 		},
 })
-	.addTo(mymap);*/
+	.addTo(mymap);
 
 let storageRef = storage.ref('locations/');
 let url = '';
@@ -219,6 +217,7 @@ function setImages(imageArr) {
 }
 
 function setContextImages(imageCTX) {
+	console.log('image' , imageCTX);
 	$('.contextImage').remove();
 	L.control.custom({
 		position: 'bottomright',
@@ -228,7 +227,6 @@ function setContextImages(imageCTX) {
 			{
 				margin: '0px 20px 20px 0',
 				padding: '0px',
-				height: '200px',
 				width: '200px'
 			},
 	})
