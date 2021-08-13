@@ -146,7 +146,7 @@ db.collection("locations2").get().then((querySnapshot) => {
 
 L.control.custom({
 	position: 'bottomleft',
-	content : '<button class="btn btn-primary">Start Tour</button>',
+	content : '<button class="btn btn-primary" onclick="startTour()">Start Tour</button>',
 	classes : '',
 	style   :
 		{
@@ -284,4 +284,50 @@ function switchStyle() {
 		document.getElementById('gallery').classList.remove("custom");
 		document.getElementById('exampleModal').classList.remove("custom");
 	}
+}
+
+function startTour() {
+	setAvatar();
+	$('#tourModal').modal();
+}
+let avatarArray = [
+	{
+		avatar: 'Avatar-5.png',
+		greeting: 'Yuh good man? '
+	},{
+		avatar: 'Avatar-8.png',
+		greeting: 'so hi guys'
+	},{
+		avatar: 'Avatar-11.png',
+		greeting: 'Konnichiwa'
+	},{
+		avatar: 'Avatar-12.png',
+		greeting: 'Hey dude '
+	},{
+		avatar: 'Avatar-17.png',
+		greeting: 'Namaste'
+	},{
+		avatar: 'Avatar-30.png',
+		greeting: 'Arrrrr, are you ready kids? '
+	},{
+		avatar: 'Avatar-31.png',
+		greeting: 'Jambo '
+	},{
+		avatar: 'Avatar-32.png',
+		greeting: 'G\'day mate '
+	},{
+		avatar: 'Avatar-33.png',
+		greeting: 'Yoh homey '
+	},{
+		avatar: 'Avatar-20.png',
+		greeting: 'As-salaam \'alaykum'
+	},
+]
+
+let avatarIndex = Math.floor(Math.random() * 10);
+function setAvatar() {
+
+	/*document.getElementsByClassName('avatarImage').src = 'images/avatars/' + avatarArray[avatarIndex].avatar;*/
+	$('.avatarImage').attr('src', 'images/avatars/' + avatarArray[avatarIndex].avatar)
+	document.getElementById('avatarGreeting').innerText = avatarArray[avatarIndex].greeting;
 }
