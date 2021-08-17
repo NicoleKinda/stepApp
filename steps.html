@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Step App</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link crossorigin="" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          rel="stylesheet"/>
+    <link href="css/stepApp.css" rel="stylesheet">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+
+</head>
+<body>
+
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="custom-menu" style="display: none">
+            <button class="btn btn-primary" id="sidebarCollapse" type="button">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
+        </div>
+        <div class="p-4" style="padding-top: 0 !important;">
+            <h1 style="text-align: center;"><a class="logo" href="index.html">Step App</a></h1>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a aria-expanded="false" href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#">Steps</a>
+                </li>
+            </ul>
+
+            <div class="footer">
+                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made by N.K.</p>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div class="p-4 p-md-5 pt-5" id="content" style="background: #f4f4f4;">
+        <div class="container-fluid">
+            <div class="px-lg-5">
+
+                <!-- For demo purpose -->
+                <div class="row py-5">
+                    <div class="col-lg-12 mx-auto">
+                        <h2>Gallery</h2>
+                    </div>
+                </div>
+                <!-- End -->
+
+                <div class="row" id="galleryRow">
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294929/matthew-hamilton-351641-unsplash_zmvozs.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Red paint cup</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                                    <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294927/cody-davis-253928-unsplash_vfcdcl.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Blorange</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
+                                    <div class="badge badge-primary px-3 rounded-pill font-weight-normal">Trend</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/nicole-honeywill-546848-unsplash_ymprvp.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">And She Realized</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                                    <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294927/dose-juice-1184444-unsplash_bmbutn.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">DOSE Juice</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPEG</span></p>
+                                    <div class="badge badge-success px-3 rounded-pill font-weight-normal">Hot</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294926/cody-davis-253925-unsplash_hsetv7.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Pineapple</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
+                                    <div class="badge badge-primary px-3 rounded-pill font-weight-normal">New</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/tim-foster-734470-unsplash_xqde00.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Yellow banana</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                                    <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294927/mike-meyers-737494-unsplash_yd11yq.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Teal Gameboy</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPEG</span></p>
+                                    <div class="badge badge-info px-3 rounded-pill font-weight-normal">Hot</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294930/ronald-cuyan-434484-unsplash_iktjid.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Color in Guatemala.</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
+                                    <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294929/matthew-hamilton-351641-unsplash_zmvozs.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Red paint cup</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                                    <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294927/cody-davis-253928-unsplash_vfcdcl.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Lorem ipsum dolor</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
+                                    <div class="badge badge-primary px-3 rounded-pill font-weight-normal">Trend</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/nicole-honeywill-546848-unsplash_ymprvp.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Lorem ipsum dolor</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                                    <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294927/dose-juice-1184444-unsplash_bmbutn.jpg" alt="" class="img-fluid card-img-top">
+                            <div class="p-4">
+                                <h5> <a href="#" class="text-dark">Lorem ipsum dolor</a></h5>
+                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPEG</span></p>
+                                    <div class="badge badge-success px-3 rounded-pill font-weight-normal">Hot</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- End -->
+
+                </div>
+                <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Show me more</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+<script src="js/steps.js"></script>
+</body>
+</html>

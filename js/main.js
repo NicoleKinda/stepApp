@@ -83,7 +83,8 @@ db.collection("locations2").get().then((querySnapshot) => {
 			openTime: doc.data().openingTime,
 			weblink: doc.data().weblink,
 			description: doc.data().description,
-			visitIndex: doc.data().visitIndex
+			visitIndex: doc.data().visitIndex,
+			accessibility: doc.data().accessibility
 		})
 		let imageArray = [];
 
@@ -99,7 +100,8 @@ db.collection("locations2").get().then((querySnapshot) => {
 				openTime: doc.data().openingTime,
 				weblink: doc.data().weblink,
 				description: doc.data().description,
-				visitIndex: doc.data().visitIndex
+				visitIndex: doc.data().visitIndex,
+				accessibility: doc.data().accessibility
 			}).addTo(mymap)
 			.bindPopup(doc.data().title)
 				.on('click', function (e){
@@ -330,4 +332,30 @@ function setAvatar() {
 	/*document.getElementsByClassName('avatarImage').src = 'images/avatars/' + avatarArray[avatarIndex].avatar;*/
 	$('.avatarImage').attr('src', 'images/avatars/' + avatarArray[avatarIndex].avatar)
 	document.getElementById('avatarGreeting').innerText = avatarArray[avatarIndex].greeting;
+}
+
+let setIndex = 1;
+
+$('#nextBtn').on('click', function () {
+	console.log('clicked next');
+	refreshModal(0);
+})
+
+function refreshModal(refreshIndex) {
+
+
+	collectionArray.forEach(function (collection) {
+		console.log('visit index', collection.visitIndex);
+		if (collection.visitIndex === setIndex){
+			$('#tour0').css('display', 'none');
+			$('#tour1').css('display', '-webkit-box');
+			document.getElementById('tourTitle').innerText = collection.title;
+			document.getElementById('tourBody').innerText = collection.description;
+			document.getElementById('tourGuide').innerText = collection.accessibility;
+			document.getElementById('DescOpeningTime').innerText = collection.openTime;
+			document.getElementById('DescClosingTime').innerText = collection.closingTime;
+			document.getElementById('DescContact').innerText = collection.phoneNumber;
+			setIndex ++;
+		}
+	})
 }
