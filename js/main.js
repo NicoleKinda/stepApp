@@ -13,6 +13,8 @@ firebase.analytics();
 
 let db = firebase.firestore();
 let storage = firebase.storage();
+
+
 let collectionArray = [];
 
 (function($) {

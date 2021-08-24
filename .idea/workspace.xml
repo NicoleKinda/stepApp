@@ -25,12 +25,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a992dad-883f-4ecc-a03f-edfdb10eef30" name="Default Changelist" comment="Feat: modals for tours">
-      <change afterPath="$PROJECT_DIR$/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/steps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/steps.html" afterDir="false" />
+    <list default="true" id="9a992dad-883f-4ecc-a03f-edfdb10eef30" name="Default Changelist" comment="Feat: gallery and tour">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/stepApp.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/stepApp.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
@@ -72,6 +68,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.emberjs" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -104,7 +101,11 @@
       <workItem from="1628786260477" duration="1932000" />
       <workItem from="1628848560878" duration="6396000" />
       <workItem from="1628973355227" duration="4492000" />
-      <workItem from="1629104564334" duration="4942000" />
+      <workItem from="1629104564334" duration="5124000" />
+      <workItem from="1629205071877" duration="1168000" />
+      <workItem from="1629469831842" duration="19000" />
+      <workItem from="1629561052356" duration="1592000" />
+      <workItem from="1629576039033" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="style changes">
       <created>1628754414454</created>
@@ -141,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628860288206</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Feat: gallery and tour">
+      <created>1629203310236</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1629203310236</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,17 +184,18 @@
     <MESSAGE value="Feat: gallery modal" />
     <MESSAGE value="Feat: logo and styling" />
     <MESSAGE value="Feat: modals for tours" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: modals for tours" />
+    <MESSAGE value="Feat: gallery and tour" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: gallery and tour" />
   </component>
   <component name="WindowStateProjectService">
     <state x="594" y="351" key="Github.ShareDialog" timestamp="1628691320069">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="594" y="351" key="Github.ShareDialog/0.0.1440.900@0.0.1440.900" timestamp="1628691320069" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1628860292247">
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1629203317669">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1628860292247" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1629203317669" />
     <state x="421" y="205" width="597" height="490" key="find.popup" timestamp="1628670425509">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
