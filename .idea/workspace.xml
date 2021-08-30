@@ -26,8 +26,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a992dad-883f-4ecc-a03f-edfdb10eef30" name="Default Changelist" comment="Feat: gallery and tour">
-      <change afterPath="$PROJECT_DIR$/js/Leaflet.Control.Custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/capturing.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/maps.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/steps.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/steps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/steps.html" beforeDir="false" afterPath="$PROJECT_DIR$/steps.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +48,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -49,7 +59,9 @@
     <option name="projectConfigVersion" value="2" />
   </component>
   <component name="ProjectId" id="1wZa1AzM535CpTOcLiVIihzVm1K" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -58,7 +70,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -71,8 +84,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -106,7 +119,9 @@
       <workItem from="1629469831842" duration="19000" />
       <workItem from="1629561052356" duration="1592000" />
       <workItem from="1629576039033" duration="313000" />
-      <workItem from="1629832205888" duration="531000" />
+      <workItem from="1629832205888" duration="647000" />
+      <workItem from="1629894109313" duration="4542000" />
+      <workItem from="1630346793414" duration="7243000" />
     </task>
     <task id="LOCAL-00001" summary="style changes">
       <created>1628754414454</created>
@@ -150,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629203310236</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Feat: gallery and tour">
+      <created>1629837486780</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1629837486781</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,19 +209,5 @@
     <MESSAGE value="Feat: modals for tours" />
     <MESSAGE value="Feat: gallery and tour" />
     <option name="LAST_COMMIT_MESSAGE" value="Feat: gallery and tour" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="594" y="351" key="Github.ShareDialog" timestamp="1628691320069">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="594" y="351" key="Github.ShareDialog/0.0.1440.900@0.0.1440.900" timestamp="1628691320069" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1629203317669">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1629203317669" />
-    <state x="421" y="205" width="597" height="490" key="find.popup" timestamp="1628670425509">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="421" y="205" width="597" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1628670425509" />
   </component>
 </project>

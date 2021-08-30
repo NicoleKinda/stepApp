@@ -13,7 +13,45 @@ firebase.analytics();
 
 let db = firebase.firestore();
 let storage = firebase.storage();
+let currentUser = '';
+let setIndex = 1;
+let avatarIndex;
 
+firebase.auth().onAuthStateChanged((user) => {
+	if (user) {
+		// User is signed in, see docs for a list of available properties
+		// https://firebase.google.com/docs/reference/js/firebase.User
+		currentUser = user.uid;
+		console.log('user', user);
+
+
+
+		var docRef = db.collection("tours").doc(currentUser);
+
+		docRef.get().then((doc) => {
+			if (doc.exists) {
+				console.log("Document data:", doc.data());
+				setIndex = doc.data().currentStep;
+				avatarIndex = doc.data().avatarIndex;
+
+				if (avatarIndex) {
+					document.getElementById('hellotext').innerText = 'Let\s resume our tour.'
+				}
+			} else {
+				// doc.data() will be undefined in this case
+				console.log("No such document!");
+			}
+		}).catch((error) => {
+			console.log("Error getting document:", error);
+		});
+	} else {
+		// User is signed out
+		// ...
+		setTimeout(function () {
+			window.location.href = 'index.html';
+		}, 1000);
+	}
+});
 
 let collectionArray = [];
 
@@ -328,15 +366,18 @@ let avatarArray = [
 	},
 ]
 
-let avatarIndex = Math.floor(Math.random() * 10);
+if (!avatarIndex) {
+	avatarIndex = Math.floor(Math.random() * 10);
+}
 function setAvatar() {
 
+	console.log('avatarIndex', avatarIndex);
 	/*document.getElementsByClassName('avatarImage').src = 'images/avatars/' + avatarArray[avatarIndex].avatar;*/
 	$('.avatarImage').attr('src', 'images/avatars/' + avatarArray[avatarIndex].avatar)
 	document.getElementById('avatarGreeting').innerText = avatarArray[avatarIndex].greeting;
 }
 
-let setIndex = 1;
+
 
 $('#nextBtn').on('click', function () {
 	console.log('clicked next');
@@ -361,3 +402,26 @@ function refreshModal(refreshIndex) {
 		}
 	})
 }
+
+$('#logoutBtn').on('click', function (e) {
+	firebase.auth().signOut().then(() => {
+		// Sign-out successful.
+		console.log('logged user out.');
+	}).catch((error) => {
+		// An error happened.
+		console.log('couldn\'t log out');
+	});
+})
+
+$('#saveBtn').on('click', function (e) {
+	db.collection("tours").doc(currentUser).set({
+		currentStep: setIndex,
+		avatarIndex: avatarIndex
+	})
+		.then((docRef) => {
+			console.log("Document written with ID: ", docRef);
+		})
+		.catch((error) => {
+			console.error("Error adding document: ", error);
+		});
+})
